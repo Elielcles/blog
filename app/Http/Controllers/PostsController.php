@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Coment;
 
 class PostsController extends Controller
 {
     protected $post;
+    protected $coment;
 
-    public function __construct(Post $post) 
+
+    public function __construct(Post $post, Coment $coment) 
     {
         $this->post = $post;
+        $this->coment = $coment;
     }
     /**
      * Display a listing of the resource.
