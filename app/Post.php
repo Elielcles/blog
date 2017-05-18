@@ -10,4 +10,9 @@ class Post extends Model
 		'title',
 		'content'
 	];
+
+	public function coments()
+    {
+    	return $this->hasMany(Coment::class);
+    }
 }
