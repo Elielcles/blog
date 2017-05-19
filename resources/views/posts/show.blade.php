@@ -17,7 +17,9 @@
   </a>
   <hr>
   <h1>Coments ({{$post->coments->count()}})</h1>
-  <form action="">
+  <form action="{{action('ComentsController@store')}}" method="post">
+  	{{ csrf_field() }}
+  	<input type="hidden" name="post_id" value="{{$post->id}}">
   	<label for="coment"></label>
   	<textarea name="coment" id="coment" class="form-control" rows="10" placeholder="Faça seu comentário"></textarea>
   	<br>
