@@ -16,7 +16,7 @@ Edit
 		
 		<div class="form-group @if ($errors->has('title')) has-error @endif">
 			<label for="title">Title</label>
-			<input class="form-control" type="text" name="title" id="title" value="{{$post->title}}">
+			<input class="form-control" type="text" name="title" id="title" value="{{old('title',$post->title)}}">
 			@if ($errors->has('title'))
 			<span id="helpBlock2" class="help-block">{{$errors->get('title')[0]}}</span>
 			@endif
@@ -24,7 +24,7 @@ Edit
 
 		<div class="form-group @if ($errors->has('content')) has-error @endif has-error">
 			<label for="content">Content</label>
-			<textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ $post->content }}</textarea>
+			<textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content',$post->content) }}</textarea>
 			@if ($errors->has('content'))
 			<span id="helpBlock2" class="help-block">{{$errors->get('content')[0]}}</span>
 			@endif
