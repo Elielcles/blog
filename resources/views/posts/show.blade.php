@@ -19,9 +19,16 @@
   <h1>Coments ({{$post->coments->count()}})</h1>
   <form action="{{action('ComentsController@store')}}" method="post">
   	{{ csrf_field() }}
-  	<input type="hidden" name="post_id" value="{{$post->id}}">
-  	<label for="coment"></label>
-  	<textarea name="coment" id="coment" class="form-control" rows="10" placeholder="Faça seu comentário"></textarea>
+
+       <input type="hidden" name="post_id" value="{{$post->id}}">
+        <div class="form-group @if ($errors->has('coment')) has-error @endif">
+          <label for="coment">Coment</label>      
+
+        <textarea name="coment" id="coment" class="form-control" rows="10" placeholder="Faça seu comentário">{{old('coment')}}</textarea>
+        @if ($errors->has('coment'))
+          <span id="helpBlock2" class="help-block">{{$errors->get('coment')[0]}}</span>
+        @endif
+    </div>
   	<br>
   	<input type="submit" name="" class="btn btn-success">
   	

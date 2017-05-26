@@ -4,21 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Coment;
+use App\Http\Requests\ComentRequest;
 
 class ComentsController extends Controller
 {
-    public function store(Request $request)
-    {
-    	protected $coment;
-    	public function __construct(Coment $coment){
+	protected $coment;
 
-    		$this->coment = $coment;
-    	}
+   
+	public function __construct(Coment $coment)
+	{
 
-    	public function store(PostsRequest $request){
+		$this->coment = $coment;
+	}
 
-    		$this->coment->create($request = all());
-    		return redirect()->back();
-    	}	
-    }
+	public function store(ComentRequest $request)
+	{
+
+		$this->coment->create($request->all());
+		return redirect()->back();
+	}	
 }
